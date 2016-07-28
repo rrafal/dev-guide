@@ -199,6 +199,28 @@ On-Screen Tours:
 * [JQuery from CodeRops](http://tympanus.net/codrops/2010/12/21/website-tour/)
 * [Jquery Joyride 2](http://zurb.com/playground/jquery-joyride-feature-tour-plugin)
 
+## CSS
+
+Pick some conventions for all your class names. Some ideas:
+* use short prefix, ex. acronym of the company
+* always use 2-3 words
+* `-button` suffix for buttons, ex. `close-button`
+* `-input` suffix for inputs, ex. `name-input`
+* `-heading` for `h1`-`h6`, ex. `large-heading`
+* `website-` prefix for header and footer, ex: `website-logo`
+* `-container` prefix for reusable elements, ex: `news-container`
+* single word for boolean properties, ex: `active`
+* `-style` for style variations, ex: `green-style`
+
+Show element hierarchy in class names. For example, use the same prefix `message-` for all ements
+in a container:
+
+```
+<div class="message-container warning-style">
+<h1 class="message-heading">Sorry...</h1>
+<p class="message-body">This product is no longer available.</p>
+</div>
+```
 
 ## Python
 
