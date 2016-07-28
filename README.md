@@ -1,7 +1,5 @@
 # Web Development Guide
 
-## Intro
-
 This is my another attempt at writing down best rules and practices in web software
 development. This is not some theoretical discussion or rules for others.
 Rather, it's a collection of best practices which a picked up over the years.
@@ -31,15 +29,13 @@ imediately, such as critical bugs, technical deb or high-risk areas. Make sure t
 owner has clear view of the project. For example, there should be a single list of known bugs
 and needed featues.
 
-## Bugs and Features
-
-Keep a single list of all bugs and features. If you need additional documentation, cross link
-with with docs in Google Drive. Write down more than might you need, especially:
+Make sure there is a single list of all bugs and features. If you need additional documentation,
+cross link with with docs in Google Drive. Write down more than might you need, especially:
 
 * discussion notes
 * pros and cons
 * alternative ideas
-* changes
+* changes to feature
 
 ## Documentation
 
@@ -67,15 +63,34 @@ documentation should include:
 
 ## Development Principles
 
-Keep in simple, stupid.
+### C4
 
-Make it explicit.
+[The C4 software architecture model](https://www.structurizr.com/help/c4)
 
-Test all new code.
+A software **system** is made up of one or more **containers**. Container is executable unit:
+* web application
+* mobile app
+* RDS
+* service
+* microservice
 
-Comment new code.
+Each container is made of one or more **components**. They can be indentified in code by names
+such as components, services, modules, subsystems, layers. A component exposes a clean, well
+documented public interface.
 
-Make it modular, composable, testable, extensible, maintenable.
+Each container is implemented by one or more **class** or function. Some classes and function
+can be private to the component.
+
+### Proverbs
+
+* Keep in simple, stupid.
+* Make it explicit.
+* Test all new code.
+* Comment new code.
+* Make it modular, composable, testable, extensible, maintenable.
+* There's no time to stop for gas, we're already late.
+* If you don't understand it, you can't program it.
+* If something is worth doing once, it's worth building a tool to do it.
 
 ## Automation
 
@@ -83,12 +98,13 @@ Automate everything. If it's not automated, it will change or be forgotten.
 
 Run all test automatically. This can be done on every commit, once per hour, day, week,
 etc. The more often you run tests the better. However, it's important that all tests are
-every so often, which will happen only if it's automated.
+run every so often, which will happen only if it's automated.
 
 Automate style checking, formatting and linting.
 
 Automate deployment. If you cannot automate all parts of deployment, write script
-which does 90% and asks human to do the remaining work.
+which does 90% and asks human to do the remaining work. Continuous delivery is the best
+outcome and something worth achieving.
 
 Automate project setup: new developer should have to run only three commands to see
 the project running on their local computer:
@@ -106,7 +122,7 @@ variables should tell you most of the story. Long fragments of code, statements 
 expressions should be factored out into functions to give them names.
 
 Comments should be common, but kept to minimum. Nobody has the time to read long comments,
-unless they are actually needed. 90% of comments should be very short.
+unless they are actually needed. 80% of comments should be very short.
 
 ## Coding Style
 
@@ -127,7 +143,6 @@ Testing principles:
 * Test for happy and sad case.
 * Test edge cases (ex. empty input).
 * Keep tests verbose and linear in execution.
-
 
 Testing levels:
 
@@ -157,9 +172,9 @@ automated.
 
 ### Linux
 
-Set server to UTC timezone. Synchronising time: `sudo apt-get install ntp; ntpdate -s ntp.ubuntu.com;`
-
-Set MTU to 1500 (http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/network_mtu.html)
+* Set server to UTC timezone.
+* Synchronising time: `sudo apt-get install ntp; ntpdate -s ntp.ubuntu.com;`
+* Set MTU to 1500 (http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/network_mtu.html)
 
 ### Hosting
 
@@ -180,9 +195,19 @@ Set MTU to 1500 (http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/network_mtu.
 
 ## Frontend
 
-Contacts:
+Use [Bower](https://bower.io/) package manager for most front-end libraries
+(JS, CSS, images, etc.). [Configure](https://bower.io/docs/config/) its `directory`
+option to point to appropriate folder.
 
-* [Dropifi](http://www.dropifi.com/) contact
+Use Gulp to process your assets. You can compile CSS and JS, optimize code, add browser
+prefixes to CSS, lint, compress and organize files, etc. You can also create Gulp task
+to run local web server. See [gulp-connect-php](https://www.npmjs.com/package/gulp-connect-php)
+as an example.
+
+Contacts Forms:
+
+* [Dropifi](http://www.dropifi.com/)
+* [JotForm](https://www.jotform.com)
 
 Frameworks
 
@@ -191,9 +216,10 @@ Frameworks
 
 Graphcs:
 
-* [Font Awesome](http://fontawesome.io/icons/) icons
+* [Font Awesome](http://fontawesome.io/icons/)
+* [IcoMoon](https://icomoon.io/)
 
-On-Screen Tours:
+Tours:
 * [Guiders](https://github.com/jeff-optimizely/Guiders-JS)
 * [JimmyBonney](http://jimmybonney.com/articles/8_welcome_tours_web_applications/)
 * [JQuery from CodeRops](http://tympanus.net/codrops/2010/12/21/website-tour/)
@@ -201,31 +227,36 @@ On-Screen Tours:
 
 ## CSS
 
-Pick some conventions for all your class names. Some ideas:
+Pick a set of conventions for all your class names. Keep number of rules to minimum.
+Some ideas:
+
 * use short prefix, ex. acronym of the company
-* always use 2-3 words
+* use 2-3 words
 * `-button` suffix for buttons, ex. `close-button`
 * `-input` suffix for inputs, ex. `name-input`
 * `-heading` for `h1`-`h6`, ex. `large-heading`
-* `website-` prefix for header and footer, ex: `website-logo`
-* `-container` prefix for reusable elements, ex: `news-container`
-* single word for boolean properties, ex: `active`
-* `-style` for style variations, ex: `green-style`
+* `website-` suffix for header and footer, ex: `website-logo`
+* `-container` suffix for reusable elements, ex: `news-container`
+* single adjective for boolean properties, ex: `active`
+* `-style` suffix for style variations, ex: `green-style`
 
 Show element hierarchy in class names. For example, use the same prefix `message-` for all ements
 in a container:
 
-```
+```HTML
 <div class="message-container warning-style">
-<h1 class="message-heading">Sorry...</h1>
-<p class="message-body">This product is no longer available.</p>
+  <h1 class="message-heading">Sorry...</h1>
+  <p class="message-body">This product is no longer available.</p>
 </div>
 ```
 
 ## Python
 
-### Requests: HTTP for Humans
+Frameworks:
+* [Flask](http://flask.pocoo.org/)
+* [Django](https://www.djangoproject.com/)
 
-http://docs.python-requests.org/en/master/
-
-* Always use timeout
+Libraries:
+* [pip](https://pip.pypa.io/en/stable/) - Python Package Manager
+* [Requests](http://docs.python-requests.org/en/master/) - HTTP for Humans
+  * Always use timeout
