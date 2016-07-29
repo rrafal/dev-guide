@@ -10,11 +10,15 @@ fit on an index card.
 
 ### Adapter
 
-A class encapsulates another (implementation) class and matches required interface. It's
-useful when you have an implementation but it has wrong interface.
+When an implementation has poor interface, create an adapter class to encapsulate the implementation.
+Interface which is poorly designed, difficault to use, or not fitting project standards should
+use an adapter. For example, instead of making HTTP calls to remote API, create adapter class
+with simple methods matching your domain language.
 
 ### Bridge
 
-Seperate abstraction and implementation. For example, implement algorithm as a class,
-passing in math libary to algorithm's constructor. Add a bridge between algorithm class
-and library class. This allows to change library without affecting algorithm.
+When you have multiple implementations, seperate abstraction, allow implementations to be interchanged.
+For example, having multiple graphic librararies and one or more graphic application, create common interface
+IGraphicLibrary, allowing any libarary to be be used by the application. Application is the abstraction
+and library is the implementation.
+
