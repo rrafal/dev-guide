@@ -1,4 +1,4 @@
-# Software Design Pattern
+# Software Design Patterns
 
 A design pattern is a solution to a common problem in software engineering. Problem comes first,
 solution is second. In other words, pattern should not be used if problem does not exist.

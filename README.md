@@ -1,25 +1,18 @@
 # Web Development Guide
 
-This is my another attempt at writing down best rules and practices in web software
-development. This is not some theoretical discussion or rules for others.
-Rather, it's a collection of best practices which a picked up over the years.
+This is my guide into web development. I have picked up this knowledge over the years from courses,
+books, articles and discussions with other software engineers. The information have been re-written
+so that it express ideas the way I understand them.
 
-I did not invent any of the things I'm writing about. Either I stole them from people
-who are smarter and better, or I discovered them the hard way - doing the same thing
-over and over and learning along the way.
-
-These rules are not a law which must be followed. Instead, they are best practicies which
-I want to follow when it makes sense. They are practices relevent to what I work on,
-to the tools and technologies I use, to the problems I solve. They might not work well,
-or might not be applicable for other engineers. Also, they might become irrelevant for me
-in a few year. Notherless, I think it's worth the time to write them down. First,
-it might help others to understand who I am as a software engineer. Second, it will
-remind me what rules I want to follow but do not necesserly do. Third, somebody might come
-across this document and find it useful.
+These documents are meant to provide a quick intro into what is important to me. This is not a book
+nor an education article. It's more of a notebook and work in progress.
 
 I'm writing this guide in markup so that I can turn it into a website. For the moment,
 it will be just a set of markdown documents.
 
-# Copyright
+The information has been devided into the following sections:
+* [Software Engineering Principles](https://github.com/rrafal/dev-guide/blob/master/principles.md)
+* [Development in Practice](https://github.com/rrafal/dev-guide/blob/master/practice.md)
+* [Software Design Pattern](https://github.com/rrafal/dev-guide/blob/master/patterns.md)
 
-Rafal Radulski <rrafal@gmail.com>
+Copyright (c) Rafal Radulski, [radulski.net](http://www.radulski.net/)
