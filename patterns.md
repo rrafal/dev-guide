@@ -1,7 +1,10 @@
-# Patterns
+# Software Design Pattern
 
-The most common software patterns with a briefly explenation. The explenation should fit
-on an index card.
+A design pattern is a solution to a common problem in software engineering. Problem comes first,
+solution is second. In other words, pattern should not be used if problem does not exist.
+
+The most common software patterns are listed. Short explenation is provided, short enough to
+fit on an index card.
 
 ## Structural
 
