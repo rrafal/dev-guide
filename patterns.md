@@ -82,4 +82,3 @@ to a remote API, create a class with simple methods matching your domain languag
 
 When you need to intercept calls to concrete object, create proxy. Proxy has the same interface; it can be used
 instead of concrete object. Proxy might do caching, logging, input validation, forward call across network, etc.
-
