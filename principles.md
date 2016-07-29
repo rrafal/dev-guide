@@ -1,4 +1,4 @@
-# Web Development Principles
+# Software Engineering Principles
 
 These are best rules and practices in web software development. I did not invent
 any of the things I'm writing about. Either I stole them from people who are smarter and better,
@@ -7,7 +7,7 @@ or I discovered them the hard way - doing the same thing over and over and learn
 These rules are not a law which must be followed. Instead, they are best practicies which
 are worth to follow when it makes sense. They are practices relevent to what I work on,
 to the tools and technologies I use, to the problems I solve. They might not work well,
-or might not be applicable for other engineers. Also, they might become irrelevant for me
+or might not be applicable for others. Also, they might become irrelevant for me
 in a few year. Notherless, I think it's worth the time to write them down. First, it will
 remind me what rules I want to follow but do not necesserly do. Second,
 it might help others to understand who I am as a software engineer. Third, somebody might come
@@ -120,8 +120,8 @@ Testing principles:
 
 Testing levels:
 
-* unit testing - one function
-* component interface testing - public interface
+* unit testing - one function or class
+* component interface testing - public interface of a package
 * integration testing - few components working together
 * system testing - entire system, from DB to UI
 
@@ -130,8 +130,11 @@ Other tests:
 * performance testing
 * security testing
 
-Test for functionality. When you write test function or comment, write down:
-"when ... then ..."
+Test behavior, not implementation. When you write a test (its name or comment), write down:
+"when ... then ...". This means that you'll be testing on slightly higher level. Testing behavior has
+a huge benefit. You get to test your business logic instead of testing semantics of the programming
+language. Also, it allows you to refactor, change the implementation details, without having to rewrite
+your tests.
 
 Mock your objects and functions. Life is so much easier with mocking. When mocking
 is not available in a given language, use dependency injection pattern.
